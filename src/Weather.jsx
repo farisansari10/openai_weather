@@ -6,7 +6,7 @@ function Weather() {
 
     async function fetch_weather(city) {
         console.log(`Fetching weather for ${city}`);
-        const weatherAPIKey = import.meta.env.VITE_WEATHER_API_KEY;
+        const weatherAPIKey = import.meta.env.WEATHER_API_KEY;
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherAPIKey}`;
 
         try {
@@ -27,7 +27,7 @@ function Weather() {
         const baseURL = "https://api.openai.com/v1/chat/completions";
         const headers = {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+            Authorization: `Bearer ${import.meta.env.OPENAI_API_KEY}`,
         };
 
         let data ={
@@ -66,8 +66,8 @@ function Weather() {
 
                 const isGoodWeather = function_response.includes("sunny");
             const coffeeResponse = isGoodWeather
-                ? "It's a good day for coffee outside! ☀️"
-                : "It's rainy, not the best weather for coffee outside. ☔";
+                ? "It's a good day for coffee outside!"
+                : "It's rainy, not the best weather for coffee outside.";
 
 
                 data.messages.push({
